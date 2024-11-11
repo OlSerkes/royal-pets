@@ -1,0 +1,901 @@
+//====================================================================================================
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+
+    &__container {
+        display: grid;
+        grid-template-columns: 1fr 72%;
+        align-items: center;
+        gap: toRem(30);
+        padding-top: toRem(150);
+        padding-bottom: toRem(50);
+        position: relative;
+        z-index: 2;
+        flex-grow: 1;
+        @include adaptiveValue("padding-top", 150, 80);
+
+        @media (max-width: toRem(1199.98)) {
+            grid-template-columns: auto;
+        }
+    }
+
+    &__body {}
+
+    &__content {
+        position: relative;
+        z-index: 3;
+
+        @media (min-width: toRem(1199.98)) {
+            margin-right: -55%;
+        }
+
+        @media (max-width: toRem(1199.98)) {
+            text-align: center;
+        }
+    }
+
+    &__title {
+        font-family: "Italiana";
+        color: $bgGold;
+        text-transform: capitalize;
+        @include adaptiveValue("font-size", 100, 42);
+
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 35, 15);
+        }
+    }
+
+    &__button {}
+
+    &--border {}
+
+    &__slider.swiper {
+        position: relative;
+        padding-top: toRem(50);
+        padding-bottom: toRem(50);
+        z-index: 2;
+
+        @media (max-width: toRem(1199.98)) {
+            margin: toRem(0) toRem(-15);
+        }
+    }
+
+    &__wrapper {}
+
+    &__slide {}
+
+    &__controll {
+        position: absolute;
+        z-index: 4;
+        bottom: toRem(30);
+        right: toRem(15);
+        display: flex;
+        gap: toRem(30);
+
+        @media (max-width: toRem(1199.98)) {
+            justify-content: center;
+            width: 100%;
+            right: 0;
+        }
+    }
+
+    &__arrow {
+        color: $bgGold;
+        font-size: toRem(16);
+        transition: transform 0.3s;
+
+        &--left {
+            transform: rotate(-180deg);
+
+            @media (any-hover: hover) {
+                &:hover {
+                    transform: rotate(-180deg) scale(1.3);
+                }
+            }
+        }
+
+        &--right {
+            @media (any-hover: hover) {
+                &:hover {
+                    transform: scale(1.3);
+                }
+            }
+        }
+    }
+
+    &__bg {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+        object-position: top;
+    }
+}
+
+.slide-hero {
+    @include adaptiveValue("flex-basis", 742, 230);
+
+    &__content {
+        aspect-ratio: 1 / 1;
+        border: toRem(1) solid $bgGold;
+        border-radius: 50%;
+        flex: 1 1 auto;
+        position: relative;
+        @include adaptiveValue("padding", 24, 10);
+    }
+
+    &__body {
+        background: linear-gradient(135deg, rgba(20, 17, 10, 1) 0%, rgba(33, 28, 22, 1) 12%, rgba(20, 17, 10, 1) 100%);
+        border-radius: 50%;
+        aspect-ratio: 1 / 1;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+
+    &__image {
+        width: 100%;
+        margin-top: -10%;
+        /* 65/650 */
+    }
+
+    &__top-image {
+        width: 100%;
+        height: 50%;
+        overflow: hidden;
+        aspect-ratio: 1 / 1;
+        margin-top: -110%;
+
+        img {
+            max-width: 100%;
+        }
+    }
+}
+
+//=======================================================================================================================
+.about-us {
+    position: relative;
+    @include adaptiveValue("padding-top", 190, 30);
+    @include adaptiveValue("padding-bottom", 80, 30);
+
+    &::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0.1;
+        background: url('@img/about/bg.png') 0 0 no-repeat;
+    }
+
+    &__container {
+        position: relative;
+
+    }
+
+    &__body {
+        display: flex;
+        align-items: center;
+        @include adaptiveValue("gap", 134, 30);
+
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 98, 20);
+        }
+
+        @media (max-width:$tablet) {
+            flex-direction: column-reverse;
+        }
+    }
+
+    &__image {
+        flex: 0 0 51.25%;
+        outline: 1px solid $goldColor;
+        padding: 15px;
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    &__content {
+        flex: 1 1 auto;
+    }
+
+    &__block-header {}
+
+    &__label {}
+
+    &__title {}
+
+    &__text {}
+
+    &__button {}
+
+    &__services {}
+}
+
+//===========================================================================================================
+.services-about-us {
+    display: flex;
+    flex-wrap: wrap;
+    gap: toRem(30);
+    max-width: toRem(1024);
+    margin: 0 auto;
+    justify-content: space-between;
+    text-align: center;
+
+    @media (max-width: toEm(610)) {
+        justify-content: center;
+    }
+
+    &__item {
+        display: grid;
+        justify-items: center;
+        gap: toRem(29);
+
+    }
+
+    &__icon {
+        border-radius: 50%;
+        overflow: hidden;
+        width: toRem(140);
+        height: toRem(140);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        padding: toRem(20);
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            transition: opacity 0.3s;
+            opacity: 0.5;
+            background: url("@img/bg-button.png") center / cover no-repeat;
+        }
+
+        img {
+            position: relative;
+            max-width: 100%;
+        }
+
+    }
+
+    &__label {
+        font-family: "Italiana";
+        font-size: toRem(24);
+        text-transform: capitalize;
+    }
+}
+
+//===========================================================================================================
+.products {
+    @include adaptiveValue("padding-top", 90, 30);
+    @include adaptiveValue("padding-bottom", 170, 30);
+
+    &__container {
+        display: grid;
+    }
+
+    &__block-header {
+        max-width: toRem(460);
+        margin: 0 auto;
+        text-align: center;
+        @include adaptiveValue("margin-bottom", 48, 25);
+    }
+
+    &__items {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(toRem(350), 1fr));
+        @include adaptiveValue("gap", 53, 20);
+
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 54, 30);
+        }
+
+        @media (max-width: $mobileSmall) {
+            grid-template-columns: repeat(auto-fill, minmax(toRem(280), 1fr));
+        }
+    }
+
+    &__item {}
+
+    &__button {
+        justify-self: center;
+    }
+}
+
+.item-product {
+    transform: translate(0px, 10%);
+    opacity: 0;
+    transition: all 0.2s;
+
+    &._watcher-view {
+        transition: all 0.8s;
+        transform: translate(0px, 0px);
+        opacity: 1;
+    }
+
+    &__header {
+        position: relative;
+        padding: toRem(40);
+        border: toRem(1) solid $goldColor;
+
+        &::before {
+            content: "";
+            position: absolute;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            transition: opacity 0.3s;
+            opacity: 0.5;
+            background: url("@img/bg-gold.png") center / cover no-repeat;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            background-color: rgba(60, 38, 12, 0.55);
+            transition: opacity 0.3s;
+        }
+
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 39, 15);
+        }
+
+        @media (any-hover: hover) {
+            &:hover {
+                &::after {
+                    opacity: 1;
+                }
+
+                .item-product__add-to-cart {
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
+    }
+
+    &__image {
+        aspect-ratio: 353 / 351;
+
+        img {
+            filter: drop-shadow(10px 10px 10px rgba(60, 38, 12, 0.35));
+        }
+    }
+
+    &__body {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        gap: toRem(15);
+        justify-content: space-between;
+    }
+
+    &__title {
+        font-family: "Italiana";
+        text-transform: capitalize;
+        font-size: toRem(24);
+    }
+
+    &__link-title {
+        line-height: 120%;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    &__price {
+        font-size: toRem(24);
+    }
+
+    &__rating {
+        grid-column: span 2;
+    }
+
+    &__add-to-cart {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 0.3s;
+        z-index: 2;
+
+        @media (any-hover: none) {
+            top: auto;
+            transform: translate(-50%, 0);
+            bottom: toRem(0);
+            opacity: 1;
+            visibility: visible;
+            width: 100%;
+            border-radius: 0;
+            text-align: center;
+        }
+    }
+
+}
+
+.rating {
+    display: flex;
+    gap: toRem(10);
+
+    &__item {
+        background: url('@img/icons/star.svg') 0 0 no-repeat;
+        aspect-ratio: 1 / 1;
+        flex: 0 0 toRem(26);
+
+        &--active {
+            background: url('@img/icons/star-fill.svg') 0 0 no-repeat;
+        }
+    }
+}
+
+//=========================================================================================================
+.services {
+    background-color: $bgDark;
+    position: relative;
+    @include adaptiveValue("padding-top", 175, 30);
+    @include adaptiveValue("padding-bottom", 175, 30);
+
+    &::before {
+        content: "";
+        background: url('@img/services/bg.svg') top right / 100% no-repeat;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+    }
+
+    @media (min-width:$tablet) {
+        &::after {
+            content: "";
+            position: absolute;
+            width: 41.51%;
+            /* 797/1920 */
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: $goldColor;
+        }
+    }
+
+    &__container {
+        display: flex;
+        align-items: flex-start;
+        position: relative;
+        z-index: 2;
+
+        @media (max-width:$tablet) {
+            flex-direction: column-reverse;
+            gap: toRem(30);
+        }
+    }
+
+    &__image {
+        flex: 0 1 50%;
+        padding: toRem(15);
+        border: 1px solid #fff;
+        margin: toRem(-15);
+
+        img {
+            max-width: 100%;
+        }
+
+        @media (max-width:$tablet) {
+            align-self: center;
+            margin: toRem(0);
+        }
+    }
+
+    &__block-header {
+        flex: 0 1 50%;
+        align-self: center;
+
+        @media (min-width:$tablet) {
+            @include adaptiveValue("margin-left", 168, 50, 0, $containerWidth, 991.98);
+            max-width: toRem(460);
+        }
+
+    }
+}
+
+//===============================================================================================
+.gallery {
+    background-color: #efe9dd;
+    @include adaptiveValue("padding-top", 160, 30);
+    @include adaptiveValue("padding-bottom", 160, 30);
+
+    &__container {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        justify-content: space-between;
+        @include adaptiveValue("row-gap", 126, 15);
+
+        @media (max-width: $mobile) {
+            grid-template-columns: auto;
+        }
+    }
+
+    &__item {
+
+        &:nth-child(4n + 1),
+        &:nth-child(4n) {
+            @include adaptiveValue("width", 592, 300, 2, $containerWidth, 767.98);
+        }
+
+        &:nth-child(4n) {
+            @media (min-width: $mobile) {
+                justify-self: end;
+            }
+        }
+    }
+
+    &__image {
+        display: block;
+
+        img {
+            transition: transform 0.3s;
+            width: 100%;
+        }
+
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 52, 15);
+        }
+
+        @media (any-hover: hover) {
+            &:hover {
+                img {
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+
+    &__link {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row-reverse;
+        font-family: "Italiana";
+        color: $goldColor;
+        line-height: 120%;
+        gap: toRem(10);
+        @include adaptiveValue("font-size", 32, 24);
+
+        &::before {
+            margin-top: em(6, 32);
+            flex-shrink: 0;
+            font-size: em(24, 32);
+        }
+
+        @media (any-hover: hover) {
+            &:hover {
+                span {
+                    text-decoration: underline;
+                }
+            }
+        }
+
+    }
+
+}
+
+//====================================================================================================
+.contacts {
+    position: relative;
+    @include adaptiveValue("padding-top", 57, 30);
+    @include adaptiveValue("padding-bottom", 70, 15);
+
+    &::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 0;
+        background-color: $bgGold;
+        @include adaptiveValue("height", 140, 50);
+    }
+
+    &__container {
+        position: relative;
+        z-index: 2;
+        display: flex;
+
+        @media (max-width: $tablet) {
+            flex-direction: column-reverse;
+        }
+    }
+
+    &__media {
+        flex: 0 1 50%;
+    }
+
+    &__block-header {
+        flex: 0 1 50%;
+        @include adaptiveValue("padding-left", 168, 60, 2, $containerWidth, 991.98);
+        @include adaptiveValue("padding-top", 150, 50);
+        @include adaptiveValue("padding-bottom", 150, 35);
+
+        @media (min-width:$tablet) {
+            align-self: center;
+        }
+    }
+}
+
+.media-contacts {
+    &__images {
+        display: grid;
+    }
+
+    &__block-image {
+        position: relative;
+
+        &:last-child {
+            justify-self: end;
+            transform: translate(7.1%, -10.28%);
+            /* 53/747 */
+            /* 59/574 */
+        }
+    }
+
+    &__image {
+        max-width: 100%;
+        outline: toRem(1) solid #9d875c;
+        padding: toRem(10);
+        filter: drop-shadow(10px 10px 10px rgba(60, 38, 12, 0.35));
+    }
+
+    &__play {
+        position: absolute;
+        top: 100%;
+        left: toRem(-18);
+        transform: translate(0, -50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 5;
+        transition: transform 0.3s;
+        @include adaptiveValue("width", 220, 100);
+        @include adaptiveValue("height", 220, 100);
+
+        @media (any-hover: hover) {
+            &:hover {
+                span {
+                    &::before {
+                        opacity: 0.8;
+                    }
+                }
+            }
+        }
+
+        &::after {
+            content: '';
+            border-radius: 50%;
+            border: toRem(1) solid $bgGold;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            animation: play 2s infinite ease;
+        }
+
+        &::before {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+
+            transform: translate(-50%, -50%);
+            z-index: 3;
+            @include adaptiveValue("font-size", 43, 22);
+        }
+
+        span {
+            background-color: #fff;
+            border-radius: 50%;
+            overflow: hidden;
+            width: 85%;
+            /* 187/220 */
+            height: 85%;
+            position: relative;
+            z-index: 2;
+
+            &::before {
+                content: "";
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                transition: opacity 0.3s;
+                opacity: 0.5;
+                background: url("@img/bg-button.png") center / cover no-repeat;
+            }
+        }
+
+        @keyframes play {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
+        }
+    }
+}
+
+.contacts-items {
+    display: grid;
+    gap: toRem(30);
+
+    &__item {
+        line-height: 1.3;
+        padding-left: toRem(35);
+        position: relative;
+
+        &::before {
+            position: absolute;
+            left: 0;
+            top: toRem(4);
+            color: $goldColor;
+        }
+
+        @media (max-width:$mobileSmall) {
+            padding: toRem(35) 0 0 0;
+        }
+
+        li {
+            @include adaptiveValue("font-size", 20, 16);
+
+            &:not(:last-child) {
+                margin-bottom: em(18, 20);
+            }
+        }
+
+        a {
+            transition: color 0.3s;
+
+            @media (any-hover: hover) {
+                &:hover {
+                    color: $goldColor;
+                }
+            }
+        }
+    }
+}
+
+//=========================================================================================================
+
+.reviews {
+    @include adaptiveValue("padding-top", 100, 15);
+    @include adaptiveValue("padding-bottom", 160, 30);
+
+    &__container {}
+
+    &__slider {
+        position: relative;
+    }
+
+    &__wrapper {}
+
+    &__slide {
+        display: grid;
+        justify-items: center;
+        text-align: center;
+        @include adaptiveValue("padding-left", 190, 50, 2, $containerWidth, 767.98);
+        @include adaptiveValue("padding-right", 190, 50, 2, $containerWidth, 767.98);
+        @include adaptiveValue("gap", 50, 30);
+    }
+
+    &__icon {
+        position: relative;
+        background: #fff;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: toRem(140);
+        height: toRem(140);
+        overflow: hidden;
+
+        &::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            transition: opacity 0.3s;
+            opacity: 0.5;
+            background: url("@img/bg-button.png") center / cover no-repeat;
+        }
+
+        img {
+            position: relative;
+            z-index: 2;
+            max-width: toRem(70);
+        }
+    }
+
+    &__item {}
+
+    &__text {
+        line-height: 166.67%;
+        /* 50/30 */
+        @include adaptiveValue("font-size", 30, 18);
+
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 50, 15);
+        }
+
+        p {
+            &:not(:last-child) {
+                margin-bottom: toRem(15);
+            }
+        }
+    }
+
+    &__author {
+        font-style: normal;
+        font-family: "Italiana";
+        color: $goldColor;
+        @include adaptiveValue("font-size", 48, 32);
+    }
+
+    &__arrows {}
+
+    &__arrow {
+        position: absolute;
+        top: toRem(235);
+        z-index: 5;
+        color: $goldColor;
+        transition: color 0.3s;
+        @include adaptiveValue("font-size", 33, 24);
+
+        &--prev {
+            left: 0;
+            transform: rotate(180deg);
+        }
+
+        &--next {
+            right: 0;
+        }
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: $bgGold;
+            }
+        }
+
+        @media (max-width: $mobile) {
+            top: toRem(63);
+        }
+    }
+}

@@ -1,0 +1,275 @@
+//====================================================================================================
+.footer {
+    position: relative;
+    padding: toRem(0) toRem(0) toRem(0) toRem(0);
+    background-color: $bgDark;
+    color: $bgGold;
+
+    &::before,
+    &::after {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: toRem(174);
+
+        @media (max-width: 1640px) {
+            opacity: 0.1;
+        }
+    }
+
+    &::before {
+        content: "";
+        left: 0;
+        bottom: 0;
+        background: url("@img/footer-decor.svg") left bottom / 100% no-repeat;
+    }
+
+    &::after {
+        content: "";
+        top: 0;
+        right: 0;
+        transform: rotate(-180deg);
+        background: url("@img/footer-decor.svg") left bottom / 100% no-repeat;
+    }
+
+    &__container {
+        position: relative;
+        z-index: 5;
+    }
+
+    &__body {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        @include adaptiveValue("padding-top", 92, 30);
+        @include adaptiveValue("padding-bottom", 45, 30);
+
+        @media (max-width:$tablet) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width:$mobile) {
+            grid-template-columns: auto;
+        }
+    }
+
+    &__content {
+        @include adaptiveValue("padding-right", 40, 15);
+
+        @media (max-width:$tablet) {
+            order: 2;
+        }
+
+        @media (max-width:$mobile) {
+            order: 3;
+        }
+
+        @media (min-width:$tablet) {
+            border-right: toRem(1) solid $bgGold;
+        }
+    }
+
+    &__menu {
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 40, 20);
+        }
+    }
+
+    &__social {}
+
+    &__subscribe {
+        @media (max-width:$tablet) {
+            order: 3;
+        }
+
+        @media (max-width:$mobile) {
+            order: 2;
+            @include adaptiveValue("margin-bottom", 40, 30);
+        }
+    }
+
+    &__title {}
+
+    &__copy {
+        border-top: toRem(1) solid $bgGold;
+        text-align: center;
+        line-height: 120%;
+        @include adaptiveValue("padding-top", 42, 15);
+        @include adaptiveValue("padding-bottom", 42, 15);
+    }
+
+    &__logo {
+        justify-self: center;
+        align-self: center;
+        @include adaptiveValue("width", 287, 80);
+
+        @media (max-width:$tablet) {
+            order: 1;
+            grid-column: span 2;
+
+            &:not(:last-child) {
+                @include adaptiveValue("margin-bottom", 40, 30);
+            }
+        }
+
+        @media (max-width:$mobile) {
+            grid-column: span 1;
+        }
+    }
+}
+
+.menu-footer {
+    &__title {
+        list-style: none;
+        font-family: "Italiana";
+        font-size: toRem(20);
+        text-transform: capitalize;
+
+        &::marker,
+        &::-webkit-details-marker {
+            display: none;
+        }
+
+        &:not(:last-child) {
+            margin-bottom: toRem(15);
+        }
+
+        ._spoller-init & {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &::after {
+                display: flex;
+                justify-content: flex-end;
+                @extend %ic;
+                width: toRem(20);
+                overflow: hidden;
+                content: "\e905";
+                transition: transform 0.3s;
+                transform: rotate(90deg);
+            }
+        }
+
+        &._spoller-active {
+            &::after {
+                transform: rotate(-90deg);
+            }
+        }
+    }
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: toRem(3);
+        @include adaptiveValue("column-gap", 42, 15);
+
+        @media (max-width:$mobile) {
+            flex-direction: column;
+            flex-wrap: nowrap;
+            row-gap: toRem(10);
+        }
+    }
+
+    &__item {}
+
+    &__link {
+        font-weight: 300;
+        line-height: 156%;
+        display: inline-block;
+        transition: color 0.3s;
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: $goldColorHover;
+            }
+        }
+    }
+
+    &__logo {}
+}
+
+.social {
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: toRem(3);
+    @include adaptiveValue("column-gap", 41, 15);
+
+    @media (max-width:$mobileSmall) {
+        justify-content: space-between;
+    }
+
+    &__item {
+        font-size: toRem(24);
+        transition: color 0.3s;
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: $goldColorHover;
+            }
+        }
+    }
+}
+
+
+.subscribe {
+    @include adaptiveValue("padding-left", 40, 15, 2, $containerWidth, 767.98);
+
+    @media (min-width:$mobile) {
+        border-left: toRem(1) solid $bgGold;
+        display: grid;
+        justify-items: end;
+    }
+
+    &__body {
+        @media (min-width:$mobile) {
+            max-width: toRem(350);
+        }
+    }
+
+    &__title {
+        font-family: "Italiana";
+        text-transform: capitalize;
+        line-height: 120%;
+        @include adaptiveValue("font-size", 32, 18);
+
+        &:not(:last-child) {
+            @include adaptiveValue("margin-bottom", 25, 10);
+        }
+    }
+
+    &__form {
+        display: flex;
+        height: toRem(40);
+        border-bottom: toRem(1) solid rgba(193, 171, 129, 0.2);
+        position: relative;
+
+        .form__error {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            font-size: toRem(11);
+            color: red;
+            margin-top: toRem(5);
+        }
+    }
+
+    &__input {
+        flex: 1 1 auto;
+
+        &::placeholder {
+            color: $bgGold;
+        }
+    }
+
+    &__button {
+        transition: color 0.3s;
+
+        @media (any-hover: hover) {
+            &:hover {
+                color: $goldColorHover;
+            }
+        }
+    }
+}
+
+//====================================================================================================

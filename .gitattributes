@@ -1,0 +1,8 @@
+# Treat image files as binary
+*.jpg binary
+*.jpeg binary
+*.png binary
+*.gif binary
+*.webp binary
+*.svg binary
+
